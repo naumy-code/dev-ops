@@ -1,0 +1,13 @@
+docker pull
+
+version: "3.2"
+
+services:
+  ansible: #服务名称
+    container_name: ansible # 相当于run 的 --name
+    image: ansible/ansible:centos7
+    restart: always
+    ports:
+      - "9021:22"
+    volumes:
+      - /etc/ansible/hosts:/etc/ansible/hosts
