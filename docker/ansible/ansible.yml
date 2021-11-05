@@ -2,6 +2,7 @@ docker pull
 
 version: "3.2"
 
+# https://registry.hub.docker.com/r/ansible/ansible/tags
 services:
   ansible: #服务名称
     container_name: ansible # 相当于run 的 --name
