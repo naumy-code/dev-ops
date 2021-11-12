@@ -1,0 +1,17 @@
+version: '3.2'
+services:
+  jenkins:
+    restart: always
+    image: jenkins/jenkins:lts
+    container_name: docker_jenkins
+    privileged: true  #允许特权
+    ports:
+      - 9090:8080
+      - 50000:50000
+    volumes:
+      - ./data/:/var/jenkins_home
+      - ./maven/settings.xml:/var/jenkins_home/tools/hudson.tasks.Maven_MavenInstallation/maven/conf/settings.xml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+      - /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+      - /usr/lib/x86_64-linux-gnu/libltdl.so.7:/usr/lib/x86_64-linux-gnu/libltdl.so.7
